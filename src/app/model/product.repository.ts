@@ -1,10 +1,13 @@
 import { Injectable, OnInit } from "@angular/core";
+import { Category } from "./category.model";
 import { Product } from "./product.model";
 import { RestService } from "./rest.service";
 
 @Injectable()
 export class ProductRepository implements OnInit{
-    products: Product[]=[];
+    public products: Product[]=[];
+    public productsPerPage = 3;
+    public selectePage=1;
     private restService:RestService;
     constructor(restService:RestService){
         this.restService=restService;
@@ -20,9 +23,13 @@ export class ProductRepository implements OnInit{
         
     }
     getProduct(id:number):any{
-        this.products.find(productId=>productId.id===id);
+        return this.products.find(productId=>productId.id===id);
     }
-    getProducts():Product[]{
+    getProducts(category:string=""):Product[]{
+        if(category!=""){
+            return this.products.filter(data=>data.category==category);
+        }
         return this.products;
     }
 }
+
