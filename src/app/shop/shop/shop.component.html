@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container pt-100 mb-5">
+    <div class="row">
+        <div class="col-3">
+            <a href="#" class="list-group-item list-group-item-action">
+                Tüm Kategoriler
+            </a>
+            <a *ngFor="let c of getCategories()" (click)="changeCategory(c.name)" href=""
+            [class.active]="c.name==sCategory" class="list-group-item list-group-item-action active">
+                {{c.name}}
+            </a>
+        </div>
+        <div class="col-9">
+            <h3>Ürünler</h3>
+            <hr>
+            <div class="row">
+                <ng-container *ngFor="let product of getProducts()">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <img src="/assets/img/{{product.imageUrl}}" alt="{{product.name}}">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a style="text-decoration: none;" href="">{{product.name}}</a>
+                                </h4>
+                                <small class="text-muted">
+                                    <i class="fas fa-lira-sign"></i>{{product.price}}
+                                </small>
+
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline-primary btn-sm">
+                                    Detaylar
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm ml-3">
+                                    Sepete Ekle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
