@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CartItem } from "./cartItem";
+import { CartItem } from "./cartItem.model";
 import { Product } from "./product.model";
 
 @Injectable()
@@ -7,6 +7,8 @@ export class Cart{
     public items:CartItem[]=[];
     public howManyItemsInCart:number=0;
     public totalPrice:number=0;
+
+
     addItem(product:Product, quantity:number=1){
         //Eğer items dizisinde aynı nesne bulunuyorsa>2
         let item=this.items.find(item=>item.product.id==product.id)
