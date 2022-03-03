@@ -45,6 +45,11 @@
                             <td></td>
                             <td>{{cart.howManyItemsInCart}}</td>
                             <td>{{cart.totalPrice}} TL</td>
+                            <td>
+                            <button class="btn btn-outline-warning" (click)="cart.clearCart()">
+                                Sepeti Temizle
+                            </button>
+                        </td>
                         </tr>
                     </tbody>
                 </table>
@@ -57,7 +62,6 @@
                         Alışverişe Devam Etmek İçin Tıklayınız
                 </button>
                 </div>
-
             </ng-container>
         </div>
         <div class="col-4">
@@ -90,8 +94,6 @@
                 </table>
             </ng-container>
         </div>
-
     </div>
-
 </div>
 
