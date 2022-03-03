@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, tap } from "rxjs";
 import { Category } from "./category.model";
+import { Order } from "./order.model";
 import { Product } from "./product.model";
 
 @Injectable()
@@ -22,4 +23,8 @@ export class RestService{
             tap(data=>{console.log(data)})
         )
     }
+    saveOrder(order: Order):Observable<Order>{
+        return this.http.post<Order>(this.url+"/orders",order)
+    }
 }
+
