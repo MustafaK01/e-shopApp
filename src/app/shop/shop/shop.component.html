@@ -3,46 +3,26 @@
     <div class="row">
         <div class="col-3">
             <shop-cart-summary></shop-cart-summary>
-            <button (click)="changeCategory()" class="list-group-item list-group-item-action">
-                Tüm Kategoriler
-            </button>
-            <button *ngFor="let c of getCategories()" (click)="changeCategory(c.name)"
-            [class.active]="c.name==sCategory" class="list-group-item list-group-item-action active">
-                {{c.name}}
-            </button>
+            <shop-category-list (selectedCategory)="getCategory($event)"></shop-category-list>
         </div>
         <div class="col-9">
-            <div class="alert alert-success">
-                {{getProducts().length}} Tane Ürün Bulundu
+            <div class="row alert alert-warning">
+                <div class="col-9 ">
+                    {{selectedProducts.length}} Tane Ürün Bulundu
+                </div>
+                <div class="col-1">
+                    <div class="form-inline float-right">
+                        <select class="form-control-sm" [value]="productsPerPage" #size [value]="size.value" (change)="changePageSize(+size.value)">          
+                            <option value="1">1 Tane Ürün</option>
+                            <option value="2">2 Tane Ürün</option>
+                            <option value="3">3 Tane Ürün</option>
+                            <option value="4">4 Tane Ürün</option>
+                            <option value="5">5 Tane Ürün</option>
+                        </select>
+                </div>
+                </div>
             </div>
-            <h3>Ürünler</h3>
-            <hr>
-            <div class="row">
-                <ng-container *ngFor="let product of getProducts()">
-                    <div class="col-md-4">
-                        <div class="card mb-3">
-                            <img src="/assets/img/{{product.imageUrl}}" alt="{{product.name}}">
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a style="text-decoration: none;" href="">{{product.name}}</a>
-                                </h4>
-                                <small class="text-muted">
-                                    <i class="fas fa-lira-sign"></i>{{product.price}}
-                                </small>
-
-                            </div>
-                            <div class="card-footer">
-                                <button class="btn btn-outline-primary btn-sm">
-                                    Detaylar
-                                </button>
-                                <button (click)="addToCart(product)" class="btn btn-outline-primary btn-sm ml-3">
-                                    Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </ng-container>
-            </div>
+            <shop-product-list [products]="getProducts()"></shop-product-list>
             <div class="row mt-3">
                 <div class="col">
                     <div class="btn-group">
@@ -51,6 +31,9 @@
                         </button>
                 </div>
             </div>
+        </div>    
         </div>
+
     </div>
 </div>
+

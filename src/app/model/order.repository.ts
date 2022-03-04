@@ -7,13 +7,13 @@ import { RestService } from "./rest.service";
 @Injectable()
 export class OrderRepository{
 
-    private order:Order[]=[];
+    private orders:Order[]=[];
     private restService:RestService
     constructor(restService:RestService){
         this.restService=restService;
     }
     getOrders():Order[]{
-        return this.order;
+        return this.orders;
     }
     saveOrder(orders:Order):Observable<Order>{
         return this.restService.saveOrder(orders);
