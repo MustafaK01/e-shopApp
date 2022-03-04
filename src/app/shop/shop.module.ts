@@ -8,6 +8,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { RouterModule } from "@angular/router";
+import { ProductListComponent } from './product-list/product-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 @NgModule({
     imports:[ModelModule,BrowserModule,FormsModule,RouterModule],
     declarations: [
@@ -15,8 +17,10 @@ import { RouterModule } from "@angular/router";
       NavbarComponent,
       CartSummaryComponent,
       CartDetailsComponent,
-      CheckOutComponent
-    ],
+      CheckOutComponent,
+      ProductListComponent,
+      CategoryListComponent
+        ],
     exports: [
       ShopComponent,
       CartDetailsComponent,

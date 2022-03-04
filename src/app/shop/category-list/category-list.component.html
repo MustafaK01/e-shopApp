@@ -1,0 +1,8 @@
+<button (click)="seeAllCategories()" class="list-group-item list-group-item-action">
+    Tüm Kategoriler
+</button>
+<button *ngFor="let c of getCategories()" (click)="changeCategory(c)"
+[class.active]="c.name==sCategory.name" class="list-group-item list-group-item-action active">
+    {{c.name}}
+</button>
+
