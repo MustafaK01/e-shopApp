@@ -3,24 +3,24 @@ import { NgForm } from '@angular/forms';
 import { Order } from 'src/app/model/order.model';
 import { OrderRepository } from 'src/app/model/order.repository';
 import { AlertifyService } from 'src/app/utils/alertify.service';
-import { OrderFormChecker } from 'src/app/utils/OrderFormChecker';
+import { FormChecker } from 'src/app/utils/FormChecker';
 
 @Component({
   selector: 'shop-check-out',
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.css'],
-  providers:[AlertifyService,OrderFormChecker]
+  providers:[AlertifyService,FormChecker]
 })
 export class CheckOutComponent implements OnInit {
   
   isOrderSent:boolean=false;
   isSubmitted:boolean=false;
   alertify:AlertifyService;
-  orderFormChecker:OrderFormChecker;
+  orderFormChecker:FormChecker;
   private orderRepository:OrderRepository;
   public order:Order;
   constructor(orderRepository:OrderRepository,order:Order,
-    orderFormChecker:OrderFormChecker,alertify:AlertifyService) {
+    orderFormChecker:FormChecker,alertify:AlertifyService) {
     this.orderRepository=orderRepository;
     this.order=order;
     this.orderFormChecker=orderFormChecker;

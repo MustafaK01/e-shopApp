@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart';
 import { Category } from 'src/app/model/category.model';
@@ -16,15 +16,19 @@ import { ProductRepository } from 'src/app/model/product.repository';
 export class ShopComponent implements OnInit {
   public productsPerPage = 2;
   public selectePage=1;
-  public pageNumbers=[1,2,3,4]
   public sCategory:Category = {};
 
   public selectedProducts:Product[]=[];
   private productsRepository:ProductRepository;
-  constructor(productsRepository:ProductRepository) {
+  constructor(productsRepository:ProductRepository,
+    private cdr: ChangeDetectorRef) {
     this.productsRepository=productsRepository;
     
    }
+  ngAfterViewChecked(){
+    //your code to update the model
+    this.cdr.detectChanges();
+  }
   ngOnInit(): void {
  
   }
