@@ -1,0 +1,22 @@
+<div *ngIf="errorMessage!=null" class="bg-danger p-2 text-center text-white">
+    {{errorMessage}}
+</div>
+<div class="p-2">
+    <form #form="ngForm" (ngSubmit)="login(form)">
+        <div class="form-group">
+            <label for="username" class="form-label">Kullanıcı Adı : </label>
+            <input type="username" required [(ngModel)]="username" name="username" id="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Şifre : </label>
+            <input type="password" required minlength="6" [(ngModel)]="password" name="password" id="password" class="form-control">
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mr-2">Giriş Yap</button>
+            <button routerLink="/shop"class="btn btn-secondary">Geri Dön</button>
+
+        </div>
+    </form>
+</div>
+

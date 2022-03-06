@@ -1,0 +1,80 @@
+module.exports=function(){
+    return{
+        products:[
+            {
+                id: 0,
+                name: "Asus Zenbook",
+                price: 11000,
+                imageUrl: "asuszenbook.jpg",
+                description: "Laptop Bilgisayar",
+                category: "Bilgisayar"
+              },
+              {
+                id: 1,
+                name: "Samsung S6",
+                price: 500,
+                imageUrl: "samsungs6.jpg",
+                description: "Samsung Telefon",
+                category: "Telefon"
+              },
+              {
+                id: 2,
+                name: "Arçelik Buzdolabı",
+                price: 3000,
+                imageUrl: "arcelikbuzdolabi.jpg",
+                description: "Buzdolabı",
+                category: "Ev Eşyaları"
+              },
+              {
+                id: 3,
+                name: "Vestel Televizyon",
+                price: 6000,
+                imageUrl: "televizyon.jpg",
+                description: "Televizyon",
+                category: "Ev Eşyaları"
+              },
+              {
+                id: 4,
+                name: "Sinbo Fon Makinası",
+                price: 500,
+                imageUrl: "sinbo.jpg",
+                description: "Fon Makinası",
+                category: "Ev Eşyaları"
+              },
+              {
+                id: 5,
+                name: "Saat",
+                price: 700,
+                imageUrl: "saat.jpg",
+                description: "Saat",
+                category: "Aksesuar"
+              }
+        ],
+        categories:[
+            {
+                id: 0,
+                name: "Telefon"
+              },
+              {
+                id: 1,
+                name: "Bilgisayar"
+              },
+              {
+                id: 2,
+                name: "Elektronik"
+              },
+              {
+                id: 3,
+                name: "Ev Eşyaları"
+              },
+              {
+                id: 4,
+                name: "Aksesuar"
+              }
+        ]
+        ,
+        orders:[
+
+        ]
+    }
+}
