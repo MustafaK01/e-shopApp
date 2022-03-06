@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class OrderFormChecker{
+export class FormChecker{
     mailDomains:string[]=["@gmail.com","@outlook.com","@yahoo.com"];
     checkIfAllEntered(...param:any[]){
         for(let k = 0;k<param.length;k++){
@@ -20,3 +20,4 @@ export class OrderFormChecker{
         return false;
     }
 }
+
