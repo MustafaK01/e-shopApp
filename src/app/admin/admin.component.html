@@ -1,5 +1,20 @@
-<div class="bg-primary p-2 text-white">
-    Admin Placeholder
-    <!-- <router-outlet></router-outlet> -->
-</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="bg-primary p-2 text-white">
+            Admin Paneli
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-3">
+                <button routerLink="/shop" class="list-group-item list-group-item-action">Shop</button>
+                <button routerLinkActive="active" routerLink="/admin/main/products" class="list-group-item list-group-item-action">Products</button>
+                <button routerLinkActive="active" routerLink="/admin/main/categories" class="list-group-item list-group-item-action">Categories</button>
+                <button routerLinkActive="active" routerLink="/admin/main/orders" class="list-group-item list-group-item-action">Orders</button>
 
+                <button (click)="logout()" class="list-group-item list-group-item-action bg-danger text-white ">Çıkış</button>
+            </div>
+            <div class="col-9">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
