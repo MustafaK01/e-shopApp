@@ -14,9 +14,9 @@ const routes: Routes = [
   {path:'main',component:AdminComponent,canActivate:[AuthGuard],children:[
     {path:'products',component:ProductsListComponent},
     {path:'products/:mode/:id',component:ProductsFormComponent},
-    {path:'products/:mode/',component:ProductsFormComponent},
+    {path:'products/:mode',component:ProductsFormComponent},
     {path:'categories/:mode/:id/',component:CategoriesListComponent},
-    {path:'categories/:mode/',component:CategoriesFormComponent},
+    {path:'categories/:mode',component:CategoriesFormComponent},
     {path:'categories',component:CategoriesListComponent},
     {path:'orders',component:OrderListComponent},
 

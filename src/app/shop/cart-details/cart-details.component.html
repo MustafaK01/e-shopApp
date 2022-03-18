@@ -27,7 +27,7 @@
                                 <input style="width: 35px;" [defaultValue]="1" type="text" class="form-control" #deger [value]="deger.value"
                                 (change)="cart.updateQuantity(item.product,+deger.value)">
                             </td>
-                            <td>{{item.quantity*item.product.price}}</td>
+                            <td>{{item.product.price? item.quantity*item.product.price:0}}</td>
                             <td><button (click)="cart.removeItemFromCart(item.product)" class="btn btn-danger btn-sm">Sepetten Çıkar</button></td>
                         </tr>
                     </tbody>

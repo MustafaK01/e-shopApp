@@ -1,6 +1,7 @@
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable, tap } from "rxjs";
+import { ProductListComponent } from "../shop/product-list/product-list.component";
 import { Category } from "./category.model";
 import { Order } from "./order.model";
 import { Product } from "./product.model";
@@ -10,7 +11,7 @@ export class RestService{
     url="http://localhost:3500"
 
     private http: HttpClient
-    token:string;
+    public token:string;
     constructor(http:HttpClient){
         this.http=http;
     }
@@ -36,6 +37,27 @@ export class RestService{
             console.log(this.token)
             return response.success;
         }))
+    }
+    productAdd(product:Product):Observable<Product>{
+        return this.http.post<Product>(this.url+"/products",product,{
+            headers: new HttpHeaders({
+                "Authorization":`Bearer<${this.token}>`
+            })
+        })
+    }
+    productUpdate(product:Product):Observable<Product>{
+        return this.http.put<Product>(this.url+"/products/"+product.id,product,{
+            headers: new HttpHeaders({
+                "Authorization":`Bearer<${this.token}>`
+            })
+        })
+    }
+    productDelete(product:Product):Observable<Product>{
+        return this.http.delete<Product>(this.url+"/products/"+product.id,{
+            headers: new HttpHeaders({
+                "Authorization":`Bearer<${this.token}>`
+            })
+        })
     }
 }
 

@@ -26,7 +26,7 @@ export class Cart{
         this.totalPrice=0;
         this.items.forEach(item=>{
             this.howManyItemsInCart+=item.quantity;
-            this.totalPrice+=(item.quantity*item.product.price);
+            this.totalPrice+=item.product.price?(item.quantity*item.product.price):0;
         })
     }
     removeItemFromCart(product:Product){
