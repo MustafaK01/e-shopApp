@@ -11,8 +11,10 @@ import { AlertifyService } from 'src/app/utils/alertify.service';
 export class ProductsListComponent implements OnInit {
 
   message:string;
-
-  constructor(private productRepository:ProductRepository) { }
+  private productRepository:ProductRepository
+  constructor(productRepository:ProductRepository) {
+    this.productRepository=productRepository
+   }
 
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class ProductsListComponent implements OnInit {
     return this.productRepository.getProducts();
   }
   deleteProduct(product:Product){
-    
+      this.productRepository.deleteProduct(product)
   }
 }
+

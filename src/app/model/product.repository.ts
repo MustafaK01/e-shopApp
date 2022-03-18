@@ -23,13 +23,25 @@ export class ProductRepository implements OnInit{
         
     }
     getProduct(id:number):any{
-        return this.products.find(productId=>productId.id===id);
+        return this.products.find(productId=>productId.id==id);
     }
     getProducts(category:string=""):Product[]{
         if(category!=""){
             return this.products.filter(data=>data.category==category);
         }
         return this.products;
+    }
+    saveProduct(product:Product){
+        if(product.id==null||product.id==0){
+            this.restService.productAdd(product).subscribe(
+                data=>this.products.push(data)
+            )
+        }else{
+            this.restService.productUpdate(product).subscribe(data=>this.products.splice(this.products.findIndex(p=>p.id==product.id),1,product ))
+        }
+    }
+    deleteProduct(product:Product){
+        this.restService.productDelete(product).subscribe(data=>this.products.splice(this.products.findIndex(p=>p.id==product.id),1))
     }
 }
 

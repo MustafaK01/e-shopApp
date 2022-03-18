@@ -1,1 +1,40 @@
-<p>product-form works!</p>
+<h5>
+    {{editMode ? "Edit":"Add"}} Products
+</h5>
+<form #form="ngForm" (ngSubmit)="saveProduct(form)" class="m-4">
+    <div class="form-group">
+        <label>Ürün Adı</label>
+        <input #name="ngModel" minlength="2" maxlength="20" [(ngModel)]="product.name " name="name" required class="form-control">
+        <div style="border-top: 2px solid red;" *ngIf="name.invalid && name.touched" class="alert alert-danger">
+            Lütfen Ürün Adını Giriniz</div> 
+            <div style="border-top: 2px solid rgb(33, 156, 8);" *ngIf="name.valid && name.touched"></div> 
+    </div>
+    <div class="form-group">
+        <label>Fiyat</label>
+        <input #price="ngModel" type="number" [(ngModel)]="product.price" name="price" required class="form-control">
+        <div style="border-top: 2px solid red;" *ngIf="price.invalid && price.touched" class="alert alert-danger">
+            Lütfen Ürün Fiyatını Giriniz</div> 
+            <div style="border-top: 2px solid rgb(33, 156, 8);" *ngIf="price.valid && price.touched"></div> 
+    </div>
+    <div class="form-group">
+        <label>Ürün Resminin İsmi</label>
+        <input #imageUrl="ngModel" type="text" [(ngModel)]="product.imageUrl" name="imageUrl" required class="form-control">
+        <div style="border-top: 2px solid red;" *ngIf="imageUrl.invalid && imageUrl.touched" class="alert alert-danger">
+            Lütfen Ürün Resim Yolunu Ekleyin</div> 
+            <div style="border-top: 2px solid rgb(33, 156, 8);" *ngIf="imageUrl.valid && imageUrl.touched"></div> 
+    </div>
+    <div class="form-group">
+        <label>Ürün Açıklaması</label>
+        <textarea #description="ngModel" [(ngModel)]="product.description" name="description" required class="form-control"></textarea>
+        <div style="border-top: 2px solid red;" *ngIf="description.invalid && description.touched" class="alert alert-danger">
+            Lütfen Ürün Açıklamasını Giriniz</div> 
+            <div style="border-top: 2px solid rgb(33, 156, 8);" *ngIf="description.valid && description.touched"></div> 
+    
+    </div>
+    <button class="btn btn-outline-primary text-center" type="submit">
+        {{editMode ? "Edit":"Add"}} Product 
+    </button>
+    <button routerLink="/admin/main/products" class="btn btn-warning">
+        Cancel
+    </button>
+</form>
